@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
 
   goToProfile() {
     if(this.torreBioUserId){
-      this.service.postRequest({id: this.torreBioUserId}, '/torrenegra/getBio').then(response => {
+      this.service.postRequest({id: this.torreBioUserId}, '/torrebio/getBio').then(response => {
         if(response) {
           if(response[0]){
             if(response[0].code){

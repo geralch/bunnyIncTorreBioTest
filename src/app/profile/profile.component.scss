@@ -28,9 +28,15 @@
     }
 }
 
+.bio-section, .summary-section, .aspirations-section, .strengths-section, .education-section, .jobs-section {
+    border-bottom: 10px solid #00acc1;
+    h4 {
+        color: #00acc1;
+    }
+}
+
 .bio-section {
     background-color: #f8f9fa;
-    border-bottom: 20px solid #00acc1;
 }
 
 .profile-weight {
@@ -58,5 +64,60 @@
 .summary-section{
     margin-top: 20px;
     margin-bottom: 20px;
-    border-bottom: 20px solid #00acc1;
+}
+
+.profile-summary{
+    margin-bottom: 20px;
+}
+
+.profile-stat-1, .profile-stat-2, .profile-stat-3, .profile-stat-4{
+    margin-bottom: 20px;
+    text-align: center;
+    span {
+        color: #00acc1;
+        font-weight: bold;
+    }
+}
+
+.profile-stat-1, .profile-stat-4{
+    border-right: 2px solid #00acc1;
+    border-left: 2px solid #00acc1;
+}
+.profile-stat-2{
+    border-right: 2px solid #00acc1;
+}
+
+.profile-aspiration{
+    text-align: center;
+    margin-bottom: 20px;
+    span {
+        border: 1px solid #dee2e6;
+        color: #6c757d;
+        background-color: #f8f9fa;
+        padding: 7px;
+    }
+}
+
+.profile-strength {
+    padding: 8px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-card{
+    border: 1px solid #6c757d;
+    padding: 0px;
+    margin: 20px;
+}
+.profile-card-info{
+    padding: 10px;
+    h5 {
+        font-weight: bold;
+    }
+}
+
+.profile-card-date{
+    background-color: #edededed;
+    padding: 10px;
+    font-size: 12px;
 }

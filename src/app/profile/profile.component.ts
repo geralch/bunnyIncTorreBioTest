@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpCallsService } from '../services/http-calls.service';
 import { NgxLinkedinService } from 'ngx-linkedin';
 import { Router, ActivatedRoute } from '@angular/router';
-import * as Parallax from 'parallax-js'
-declare var Parallax: any;
 
 @Component({
   selector: 'app-profile',
@@ -20,8 +18,6 @@ export class ProfileComponent implements OnInit {
     professionalHeadline: '',
     location: '',
     weight: 0,
-    projects: [],
-    achievements: [],
     aspirations: [],
     education: [],
     jobs: [],
@@ -43,7 +39,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.postRequest({id: this.torreBioUserId}, '/torrenegra/getBio').then(response => {
+    this.service.postRequest({id: this.torreBioUserId}, '/torrebio/getBio').then(response => {
       if(response) {
         if(response[0]){
           if(response[0].code){
@@ -60,12 +56,7 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  ngAfterContentInit() {
-    
-  }
-
   setInfoForProfiles(profile){
-    console.log(profile);
     this.profile.name = profile.person.name
     this.profile.summaryOfBio = profile.person.summaryOfBio
     this.profile.picture = profile.person.picture
@@ -73,26 +64,30 @@ export class ProfileComponent implements OnInit {
     this.profile.location = profile.person.location
     this.profile.weight = profile.person.weight
     this.profile.projects = profile.person.name
-    this.profile.achievements = profile.achievements
     this.profile.aspirations = profile.aspirations
     this.profile.education = profile.education
     this.profile.jobs = profile.jobs
-    this.profile.stats.achievements = profile.stats.achievements
     this.profile.stats.aspirations = profile.stats.aspirations
     this.profile.stats.education = profile.stats.education
     this.profile.stats.jobs = profile.stats.jobs
     this.profile.stats.strengths = profile.stats.strengths
-    this.profile.stats.projects = profile.stats.projects
     this.profile.strengths = profile.strengths
+  }
+
+  goToHome(){
+    this.router.navigate(['/']);
   }
 
   loginLinkedin() {
     this.ngxLinkedinService.signIn().subscribe(user => {
         console.log(user);
-        this.service.postRequest(user, '/linkedin/getInformation').then(response => {
-          console.log(response);
-        })
+        const params = {
+          id: this.torreBioUserId,
+          data: user
+        }
+        //this.service.postRequest(user, '/torrebio/mergeInfo').then(response => {
+        //  console.log(response);
+        //})
     });
   }
-
 }
