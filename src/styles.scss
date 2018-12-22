@@ -24,3 +24,14 @@ nav {
   height: 56px;
   box-shadow: 0 1px 3px rgba(0,0,0,.2), 0 1px 1px rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
 }
+
+.nav-item {
+  a {
+    color: #00acc1 !important;
+    font-weight: bold;
+  }
+}
+
+.m-t-150 {
+  margin-top: 150px;
+}

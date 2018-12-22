@@ -12,19 +12,78 @@ declare var Parallax: any;
 })
 export class ProfileComponent implements OnInit {
 
-  public profile : any = {}; 
+  public torreBioUserId = '';
+  public profile : any = {
+    name: '',
+    summaryOfBio: '',
+    picture: '',
+    professionalHeadline: '',
+    location: '',
+    weight: 0,
+    projects: [],
+    achievements: [],
+    aspirations: [],
+    education: [],
+    jobs: [],
+    stats: {
+      achievements: 0,
+      aspirations: 0,
+      education: 0,
+      jobs: 0,
+      strengths: 0,
+      projects: 0
+    },
+    strengths: []
+  }; 
   constructor(private service: HttpCallsService,
     private router: Router, 
     private route: ActivatedRoute, 
     private ngxLinkedinService: NgxLinkedinService) { 
-    console.log(this.route.snapshot.paramMap.get('torreBioId'));
+    this.torreBioUserId = this.route.snapshot.paramMap.get('torreBioId');
   }
 
   ngOnInit() {
+    this.service.postRequest({id: this.torreBioUserId}, '/torrenegra/getBio').then(response => {
+      if(response) {
+        if(response[0]){
+          if(response[0].code){
+            this.router.navigate(['/']);
+          }
+        } else {
+          this.setInfoForProfiles(response)
+        }
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      this.router.navigate(['/']);
+    })
   }
 
   ngAfterContentInit() {
     
+  }
+
+  setInfoForProfiles(profile){
+    console.log(profile);
+    this.profile.name = profile.person.name
+    this.profile.summaryOfBio = profile.person.summaryOfBio
+    this.profile.picture = profile.person.picture
+    this.profile.professionalHeadline = profile.person.professionalHeadline
+    this.profile.location = profile.person.location
+    this.profile.weight = profile.person.weight
+    this.profile.projects = profile.person.name
+    this.profile.achievements = profile.achievements
+    this.profile.aspirations = profile.aspirations
+    this.profile.education = profile.education
+    this.profile.jobs = profile.jobs
+    this.profile.stats.achievements = profile.stats.achievements
+    this.profile.stats.aspirations = profile.stats.aspirations
+    this.profile.stats.education = profile.stats.education
+    this.profile.stats.jobs = profile.stats.jobs
+    this.profile.stats.strengths = profile.stats.strengths
+    this.profile.stats.projects = profile.stats.projects
+    this.profile.strengths = profile.strengths
   }
 
   loginLinkedin() {
