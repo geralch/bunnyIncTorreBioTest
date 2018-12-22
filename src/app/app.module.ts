@@ -5,6 +5,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
 
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 
@@ -21,6 +24,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    InputTextModule,
+    FormsModule,
+    ReactiveFormsModule,
     // AppRoutingModule
   ],
   providers: [],
