@@ -1,0 +1,17 @@
+<div class="home-body row">
+  <div class="col-6">
+    <h3 class="home-header">
+      Torre Bio is an open graph of professional experiences.
+      LinkedIn is the de facto standard for today’s professionals showcase their work and experience.
+    </h3>
+    <p class="home-subtitle">What if we could merge them into one?</p>
+    <div class="form-group">
+      <label>Write you TorreBio ID (ej. geraldinecaicedoh)</label>
+      <input type="text" class="form-control" [(ngModel)]="torreBioUserId" pInputText placeholder="TorreBio user">
+    </div>
+    <button type="button" class="btn btn-torre" (click)="goToProfile()">See Profile</button>
+  </div>
+  <div class="col-6">
+    <img class="menu-user-image" src="../../assets/images/homeimage.png" width="100%">
+  </div> 
+</div>
