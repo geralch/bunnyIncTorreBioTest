@@ -1,0 +1,123 @@
+.profile-image{
+    text-align: center;
+    margin-bottom: 24px;
+    img {
+        width: 120px;
+        border: 5px solid #00acc1
+    }
+}
+
+.profile-name{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    span {
+        color: #000000de;
+        font-size: 24px;
+        font-weight: 400;
+    }
+}
+
+.profile-headline{
+    text-align: center;
+    margin-bottom: 30px;
+    span {
+        color: #000000de;
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+
+.bio-section, .summary-section, .aspirations-section, .strengths-section, .education-section, .jobs-section {
+    border-bottom: 10px solid #00acc1;
+    h4 {
+        color: #00acc1;
+    }
+}
+
+.bio-section {
+    background-color: #f8f9fa;
+}
+
+.profile-weight {
+    text-align: center;
+    margin-bottom: 40px;
+    span {
+        color: #00acc1;
+        font-weight: bold;
+        font-size : 24px;
+    }
+}
+.profile-additional-info {
+    text-align: center;
+    margin-bottom: 20px;
+    span {
+        font-size : 20px;
+    }
+}
+
+.merge-with-linkedin{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.summary-section{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-summary{
+    margin-bottom: 20px;
+}
+
+.profile-stat-1, .profile-stat-2, .profile-stat-3, .profile-stat-4{
+    margin-bottom: 20px;
+    text-align: center;
+    span {
+        color: #00acc1;
+        font-weight: bold;
+    }
+}
+
+.profile-stat-1, .profile-stat-4{
+    border-right: 2px solid #00acc1;
+    border-left: 2px solid #00acc1;
+}
+.profile-stat-2{
+    border-right: 2px solid #00acc1;
+}
+
+.profile-aspiration{
+    text-align: center;
+    margin-bottom: 20px;
+    span {
+        border: 1px solid #dee2e6;
+        color: #6c757d;
+        background-color: #f8f9fa;
+        padding: 7px;
+    }
+}
+
+.profile-strength {
+    padding: 8px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-card{
+    border: 1px solid #6c757d;
+    padding: 0px;
+    margin: 20px;
+}
+.profile-card-info{
+    padding: 10px;
+    h5 {
+        font-weight: bold;
+    }
+}
+
+.profile-card-date{
+    background-color: #edededed;
+    padding: 10px;
+    font-size: 12px;
+}
