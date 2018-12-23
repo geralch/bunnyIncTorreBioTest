@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse">
+      <div (click)="goToHome()">
+        <img class="menu-user-image" src="../../assets/images/user.png">
+        <img class="menu-bio-image" src="../../assets/images/bio.png">
+      </div>
+    </div>
+  </nav>
+<div class="container">
+  <section class="bio-section">
+    <div class="row">
+      <div class="m-t-150 profile-image col-12">
+        <img class="rounded-circle" [src]="profile.picture">        
+      </div>
+      <div class="profile-name col-12">
+        <span>Hello my name is {{profile.name}}</span>
+      </div>
+      <div class="profile-headline col-12">
+          <span>{{profile.professionalHeadline}}</span>      
+      </div>
+      <div class="profile-weight col-12">
+          <span>{{profile.weight}} </span><br>         
+          <span>Reputation Weight </span>            
+          <i class="fas fa-weight-hanging"></i></div>
+      <div class="profile-additional-info col-12">
+          <span>Currenly on {{profile.location}}</span>             
+      </div>
+      <div class="merge-with-linkedin col-12">
+        <button type="button" class="btn btn-torre" (click)="loginLinkedin()">Merge with Linkedin</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="summary-section">
+      <div class="row">
+        <div *ngIf="profile.summaryOfBio" class="profile-summary col-12">
+            <span>{{profile.summaryOfBio}}</span>      
+        </div>
+        <div class="profile-stat-1 offset-2 col-2"><span>Aspirations</span> <br>{{profile.stats.aspirations}}</div>
+        <div class="profile-stat-2 col-2"><span>Education</span> <br>{{profile.stats.education}}</div>
+        <div class="profile-stat-3 col-2"><span>Jobs</span> <br>{{profile.stats.jobs}}</div>
+        <div class="profile-stat-4 col-2"><span>Strengths</span> <br>{{profile.stats.strengths}}</div>
+      </div>
+  </section>
+
+  <section class="aspirations-section">
+    <h4>Aspirations</h4>
+    <div class="row" *ngFor="let aspiration of profile.aspirations">
+      <div class="col-12 profile-aspiration"><span class="rounded-pill">{{aspiration.name}}</span></div>
+    </div>
+  </section>
+
+  <section *ngIf="profile.strengths.length > 0" class="strengths-section">
+      <h4>Strengths</h4>
+      <span class="profile-strength badge badge-secondary" *ngFor="let strength of profile.strengths">
+          {{strength.name}}   <span class="badge badge-light">{{strength.weight}}k</span>
+      </span>
+  </section>
+  
+  <section *ngIf="profile.education.length > 0" class="education-section">
+    <h4>Education</h4>
+    <div class="row">
+      <div class="profile-card col-5" *ngFor="let education of profile.education">
+        <div class="profile-card-info">
+          <h5>{{education.name}}</h5><br>
+          <span *ngFor="let organization of education.organizations">{{organization.name}},</span><br>
+          <span *ngIf="education.verifications > 0 || education.recommendations > 0">
+            {{education.verifications}} verifications and {{education.recommendations}} recommendation
+          </span>
+        </div>
+        <div class="profile-card-date">{{education.fromMonth}} {{education.fromYear}}</div>
+      </div>
+    </div>
+  </section>
+
+  <section *ngIf="profile.jobs.length > 0" class="jobs-section">
+    <h4>Jobs</h4>
+    <div class="row">
+        <div class="profile-card col-5" *ngFor="let job of profile.jobs">
+          <div class="profile-card-info">
+            <h5>{{job.role}}</h5><br>
+            <span *ngFor="let organization of job.organizations">{{organization.name}},</span><br>
+            <span *ngIf="job.verifications > 0 || job.recommendations > 0">
+              {{job.verifications}} verifications and {{job.recommendations}} recommendation
+            </span>
+          </div>
+          <div class="profile-card-date">{{job.fromMonth}} {{job.fromYear}}</div>
+        </div>
+      </div>
+  </section>
+</div>
